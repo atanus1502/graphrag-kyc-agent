@@ -1,8 +1,6 @@
 # A GraphRAG Agent - Know-Your-Customer
 A basic GraphRAG agent built with OpenAI Agent SDK, Neo4j and Neo4j MCP server
 
-See [`docs/knowledge-graph-schema.html`](docs/knowledge-graph-schema.html) for a graph-mode diagram of the
-database schema (node labels, relationship types, and live counts).
 
 # Before You Start
 
@@ -146,3 +144,38 @@ Test the agent tools with these example questions:
    Write a 300-word summary of this investigation into this customer. Store it as a memory, make sure to link it to accounts and transasction mentioned in the conversation
    ```
    This tests the `create_memory` tool.
+
+# Knowledge Graph Schema
+
+A graph-mode diagram of the schema (node labels, relationship types, and live counts) is available at
+[`docs/knowledge-graph-schema.html`](docs/knowledge-graph-schema.html).
+
+**Node labels:**
+
+| Label | Properties |
+|---|---|
+| `Customer` | `id`, `name`, `is_pep`, `on_watchlist` |
+| `Account` | `id`, `name` |
+| `Company` | `id`, `name`, `industry` |
+| `Address` | `id`, `name`, `city` |
+| `Device` | `id`, `name`, `os` |
+| `IP_Address` | `id`, `name` |
+| `Payment_Method` | `id`, `name`, `pm_type`, `card_number` |
+| `Transaction` | `id`, `name`, `amount`, `timestamp` |
+| `Memory` | `content`, `created_at` |
+
+**Relationships:**
+
+```
+Customer      -[:OWNS]->             Account
+Customer      -[:EMPLOYED_BY]->      Company
+Customer      -[:LIVES_AT]->         Address
+Customer      -[:USES_DEVICE]->      Device
+Customer      -[:HAS_METHOD]->       Payment_Method
+Device        -[:ASSOCIATED_WITH]->  IP_Address
+Account       -[:FROM]->             Transaction
+Transaction   -[:TO]->               Account
+Memory        -[:FOR_CUSTOMER]->     Customer
+Memory        -[:FOR_ACCOUNT]->      Account
+Memory        -[:FOR_TRANSACTION]->  Transaction
+```
