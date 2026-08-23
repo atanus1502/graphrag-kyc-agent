@@ -143,7 +143,7 @@ Test the agent tools with these example questions:
 
 5. Store conversation summary:
    ```
-   Write a 300-word summary of this investigation into this customer. Store it as a memory, make sure to link it to accounts and transasction mentioned in the conversation
+   Write a 300-word summary of this investigation into this customer and display it. Store it as a memory, make sure to link it to accounts and transasction mentioned in the conversation
    ```
    This tests the `create_memory` tool.
 
