@@ -135,7 +135,7 @@ Test the agent tools with these example questions:
    ```
    Write a 300-word summary of this investigation into this customer and display it. Store it as a memory, make sure to link it to accounts and transasction mentioned in the conversation
    ```
-   This tests the `create_memory` tool.
+   This tests the `create_memory` tool. This enables investigators to document their findings directly in the knowledge graph. It creates a “memory” (of an investigation) in the knowledge graph and links      it to all relevant customers, transactions, and accounts. Over time, this helps build an invaluable knowledge base for future investigations.
 
 ## **Web UI**
 
