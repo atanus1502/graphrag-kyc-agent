@@ -1,6 +1,8 @@
 # A GraphRAG Agent - Know-Your-Customer
 A basic GraphRAG agent built with OpenAI Agent SDK, Neo4j and Neo4j MCP server
 
+See [`docs/knowledge-graph-schema.html`](docs/knowledge-graph-schema.html) for a graph-mode diagram of the
+database schema (node labels, relationship types, and live counts).
 
 # Before You Start
 
