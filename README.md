@@ -136,7 +136,7 @@ Test the agent tools with these example questions:
 
 4. Recent transactions:
    ```
-   ru 
+   Find more details about the customer with the shared adddress. List accounts and recent transactions
    ```
    This tests the ` get_customer_and_accounts` tool. 
 
