@@ -1,10 +1,10 @@
-# A GraphRAG Agent - Know-Your-Customer
+## A GraphRAG Agent - Know-Your-Customer
 A basic GraphRAG agent built with OpenAI Agent SDK, Neo4j and Neo4j MCP server
 
 See the [graph-mode schema diagram](https://atanus1502.github.io/graphrag-kyc-agent/knowledge-graph-schema.html)
 for node labels, relationship types, and live counts.
 
-# Before You Start
+## Before You Start
 
 Before running the KYC Agent, ensure you have the following prerequisites installed and configured:
 
@@ -44,11 +44,11 @@ Before running the KYC Agent, ensure you have the following prerequisites instal
 4. **OpenAI Key**
 You will be using the OpenAI Agent SDK with an OpenAI model, so you need an OPENAI_KEY
 
-# **Neo4j**
+## **Neo4j**
 
 You have two options to create a Free Neo4j database
 
-## Option 1: Local Neo4j Docker Instance
+### Option 1: Local Neo4j Docker Instance
 
 
 Start a Neo4j docker container using the provided docker-compose.yml:
@@ -56,14 +56,14 @@ Start a Neo4j docker container using the provided docker-compose.yml:
 docker compose up -d
 ```
 
-## Option 2: Neo4j AuraDB Free (Managed Instance)
+### Option 2: Neo4j AuraDB Free (Managed Instance)
 
 1. Head over to [Neo4j AuraDB Console](https://console.neo4j.io/)
 
 2. Create a new database instance, Choose `AuraDB Free`.
 Make sure to download your credentials.
 
-# **Prepare to Run the Agent**
+## **Prepare to Run the Agent**
 
 1. Clone the repository:
    ```bash
@@ -100,19 +100,19 @@ Make sure to download your credentials.
    NEO4J_DATABASE=<YOUR_INSTANCE_ID>
    ```
 
-# **Load the dataset**
+## **Load the dataset**
 ```bash
 python generate_kyc_dataset.py
 ```
 
-# **Run the Agent**
+## **Run the Agent**
 
 Start the agent:
 ```bash
 python kyc_agent.py
 ```
 
-## Run the following sequence of questions
+### Run the following sequence of questions
 
 Test the agent tools with these example questions:
 
@@ -147,7 +147,7 @@ Test the agent tools with these example questions:
    ```
    This tests the `create_memory` tool.
 
-# Knowledge Graph Schema
+## Knowledge Graph Schema
 
 A graph-mode diagram of the schema (node labels, relationship types, and live counts) is available at
 [`docs/knowledge-graph-schema.html`](https://atanus1502.github.io/graphrag-kyc-agent/knowledge-graph-schema.html).
