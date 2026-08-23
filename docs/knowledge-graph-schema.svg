@@ -11,7 +11,7 @@
 
   <rect x="0" y="0" width="1060" height="800" rx="14" fill="#ffffff" stroke="#c7d2db" stroke-width="1" />
 
-  <text x="30" y="42" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="12" letter-spacing="1.5" fill="#5b6b78">NEO4J AURADB · INSTANCE E92863B9</text>
+  <text x="30" y="42" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="12" letter-spacing="1.5" fill="#5b6b78">NEO4J AURADB</text>
   <text x="30" y="70" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="22" font-weight="600" fill="#16212c">Knowledge graph schema</text>
 
   <g font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#5b6b78" font-size="11">
