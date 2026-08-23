@@ -5,10 +5,12 @@ description = "A KYC GraphRAG agent built with OpenAI Agent SDK. It features Neo
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "fastapi>=0.141.1",
     "neo4j>=5.28.1",
     "neo4j-rust-ext>=5.28.1.0",
     "numpy>=2.3.0",
     "ollama>=0.5.1",
     "openai-agents>=0.0.17",
     "python-dotenv>=1.1.0",
+    "uvicorn[standard]>=0.52.4",
 ]

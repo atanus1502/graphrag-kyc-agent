@@ -219,10 +219,8 @@ def generate_cypher(request: GenerateCypherRequest) -> str:
     return generated_cypher
 
 
-async def main():
-    await neo4j_mcp_server.connect()  # Connect the MCP server before using it
-
-    # Define the instructions for the agent
+def build_agent() -> Agent:
+    """Construct the KYC Analyst agent. Requires neo4j_mcp_server to already be connected."""
     instructions = """You are a KYC analyst with access to a knowledge graph. Use the tools to answer questions about customers, accounts, and suspicious patterns.
     You are also a Neo4j expert and can use the Neo4j MCP server to query the graph.
     If you get a question about the KYC database that you can not answer with GraphRAG tools, you should
@@ -231,13 +229,19 @@ async def main():
     - use the Neo4j MCP server to query the graph to answer the question
     """
 
-    kyc_agent = Agent(
+    return Agent(
         name="KYC Analyst",
         instructions=instructions,
         tools=[get_customer_and_accounts, find_customer_rings, create_memory, generate_cypher],
         mcp_servers=[neo4j_mcp_server]
     )
-    
+
+
+async def main():
+    await neo4j_mcp_server.connect()  # Connect the MCP server before using it
+
+    kyc_agent = build_agent()
+
     # Initialize conversation history
     conversation_history = []
     
