@@ -150,7 +150,7 @@ Test the agent tools with these example questions:
 # Knowledge Graph Schema
 
 A graph-mode diagram of the schema (node labels, relationship types, and live counts) is available at
-[`docs/knowledge-graph-schema.html`](docs/knowledge-graph-schema.html).
+[`docs/knowledge-graph-schema.html`](https://atanus1502.github.io/graphrag-kyc-agent/knowledge-graph-schema.html).
 
 **Node labels:**
 
