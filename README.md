@@ -1,5 +1,5 @@
 ## A GraphRAG Agent - Know-Your-Customer
-A basic GraphRAG agent built with OpenAI Agent SDK, Neo4j and Neo4j MCP server
+A basic GraphRAG agent built with OpenAI Agent SDK, Neo4j, Neo4j MCP server and a text-to-cypher tool (The ability to dynamically translate natural language into powerful graph queries often relies on specialized LLMs — fine-tuned with schema-aware query generation. We can use open weights, publicly available Text-to-Cypher models available on Hugging Face, such as neo4j/text-to-cypher-Gemma-3-4B-Instruct-2025.04.0. This model was specifically fine-tuned to generate accurate Cypher queries from user question and a schema.)
 
 See the [graph-mode schema diagram](https://atanus1502.github.io/graphrag-kyc-agent/knowledge-graph-schema.html)
 for node labels, relationship types, and live counts.
