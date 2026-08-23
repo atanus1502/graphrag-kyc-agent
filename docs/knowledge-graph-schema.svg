@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 800" role="img" aria-label="Graph diagram of the KYC database schema: a Customer node connects to Account, Company, Address, Device and Payment_Method; Device connects to IP_Address; Account and Transaction connect both ways; a Memory node points into Customer, Account and Transaction with dashed edges.">
+  <title>Knowledge graph schema — KYC Agent</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path fill="#8c9aa6" d="M0,0 L10,5 L0,10 z" />
+    </marker>
+    <marker id="arrow-memory" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path fill="#6f4fb0" d="M0,0 L10,5 L0,10 z" />
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1060" height="800" rx="14" fill="#ffffff" stroke="#c7d2db" stroke-width="1" />
+
+  <text x="30" y="42" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="12" letter-spacing="1.5" fill="#5b6b78">NEO4J AURADB · INSTANCE E92863B9</text>
+  <text x="30" y="70" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="22" font-weight="600" fill="#16212c">Knowledge graph schema</text>
+
+  <g font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#5b6b78" font-size="11">
+    <text x="1030" y="42" text-anchor="end">9 node labels · 11 relationship types</text>
+    <text x="1030" y="58" text-anchor="end">198,439 nodes · 314,997 relationships</text>
+  </g>
+
+  <g transform="translate(0,20)">
+    <!-- solid structural edges -->
+    <path stroke="#8c9aa6" stroke-width="1.4" fill="none" marker-end="url(#arrow)" d="M440.87,363.53 L678.25,236.94" />
+    <path stroke="#8c9aa6" stroke-width="1.4" fill="none" marker-end="url(#arrow)" d="M385.25,355.25 L222.63,192.63" />
+    <path stroke="#8c9aa6" stroke-width="1.4" fill="none" marker-end="url(#arrow)" d="M375,380 L196,380" />
+    <path stroke="#8c9aa6" stroke-width="1.4" fill="none" marker-end="url(#arrow)" d="M386.46,405.9 L234.2,573.4" />
+    <path stroke="#8c9aa6" stroke-width="1.4" fill="none" marker-end="url(#arrow)" d="M434.17,405.3 L595.83,574.7" />
+    <path stroke="#8c9aa6" stroke-width="1.4" fill="none" marker-end="url(#arrow)" d="M244.3,610.97 L425.7,669.03" />
+    <path stroke="#8c9aa6" stroke-width="1.4" fill="none" marker-end="url(#arrow)" d="M741.9,236.65 Q814.87,295.06 904.53,321.5" />
+    <path stroke="#8c9aa6" stroke-width="1.4" fill="none" marker-end="url(#arrow)" d="M904.53,321.5 Q831.53,263.14 741.9,236.65" />
+
+    <!-- dashed memory edges -->
+    <path stroke="#6f4fb0" stroke-width="1.4" fill="none" stroke-dasharray="5 4" opacity="0.85" marker-end="url(#arrow-memory)" d="M802.02,513.86 L443.12,391.31" />
+    <path stroke="#6f4fb0" stroke-width="1.4" fill="none" stroke-dasharray="5 4" opacity="0.85" marker-end="url(#arrow-memory)" d="M813.46,502.16 L722.4,253.8" />
+    <path stroke="#6f4fb0" stroke-width="1.4" fill="none" stroke-dasharray="5 4" opacity="0.85" marker-end="url(#arrow-memory)" d="M830.54,504.19 L917.81,373.28" />
+
+    <!-- edge labels -->
+    <g font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="10.5" fill="#5b6b78">
+      <rect x="533" y="286" width="66" height="15" rx="3" fill="#ffffff" opacity="0.92" />
+      <text x="566" y="297" text-anchor="middle">OWNS</text>
+
+      <rect x="255" y="258" width="90" height="15" rx="3" fill="#ffffff" opacity="0.92" />
+      <text x="300" y="269" text-anchor="middle">EMPLOYED_BY</text>
+
+      <rect x="248" y="371" width="70" height="15" rx="3" fill="#ffffff" opacity="0.92" />
+      <text x="283" y="382" text-anchor="middle">LIVES_AT</text>
+
+      <rect x="252" y="480" width="90" height="15" rx="3" fill="#ffffff" opacity="0.92" />
+      <text x="297" y="491" text-anchor="middle">USES_DEVICE</text>
+
+      <rect x="480" y="480" width="88" height="15" rx="3" fill="#ffffff" opacity="0.92" />
+      <text x="524" y="491" text-anchor="middle">HAS_METHOD</text>
+
+      <rect x="270" y="628" width="112" height="15" rx="3" fill="#ffffff" opacity="0.92" />
+      <text x="326" y="639" text-anchor="middle">ASSOCIATED_WITH</text>
+
+      <rect x="775" y="258" width="42" height="15" rx="3" fill="#ffffff" opacity="0.92" />
+      <text x="796" y="269" text-anchor="middle">FROM</text>
+
+      <rect x="775" y="292" width="30" height="15" rx="3" fill="#ffffff" opacity="0.92" />
+      <text x="790" y="303" text-anchor="middle">TO</text>
+
+      <rect x="560" y="440" width="118" height="15" rx="3" fill="#ffffff" opacity="0.92" />
+      <text x="619" y="451" text-anchor="middle">FOR_CUSTOMER</text>
+
+      <rect x="742" y="360" width="104" height="15" rx="3" fill="#ffffff" opacity="0.92" />
+      <text x="794" y="371" text-anchor="middle">FOR_ACCOUNT</text>
+
+      <rect x="865" y="432" width="126" height="15" rx="3" fill="#ffffff" opacity="0.92" />
+      <text x="928" y="443" text-anchor="middle">FOR_TRANSACTION</text>
+    </g>
+
+    <!-- nodes -->
+    <g>
+      <!-- Customer -->
+      <circle cx="410" cy="380" r="35" fill="#145c62" />
+      <text x="410" y="386" text-anchor="middle" font-size="17" font-weight="700" font-family="-apple-system, Segoe UI, system-ui, Roboto, sans-serif" fill="#fbfdfe">Cu</text>
+      <text x="410" y="435" text-anchor="middle" font-size="12.5" font-weight="600" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#16212c">Customer</text>
+      <text x="410" y="449" text-anchor="middle" font-size="10" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#5b6b78">8,000</text>
+
+      <!-- Account -->
+      <circle cx="710" cy="220" r="36" fill="#b06b28" />
+      <text x="710" y="226" text-anchor="middle" font-size="17" font-weight="700" font-family="-apple-system, Segoe UI, system-ui, Roboto, sans-serif" fill="#fbfdfe">Ac</text>
+      <text x="710" y="277" text-anchor="middle" font-size="12.5" font-weight="600" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#16212c">Account</text>
+      <text x="710" y="291" text-anchor="middle" font-size="10" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#5b6b78">15,999</text>
+
+      <!-- Company -->
+      <circle cx="200" cy="170" r="32" fill="#2f8f8a" />
+      <text x="200" y="176" text-anchor="middle" font-size="15" font-weight="700" font-family="-apple-system, Segoe UI, system-ui, Roboto, sans-serif" fill="#fbfdfe">Co</text>
+      <text x="200" y="223" text-anchor="middle" font-size="12.5" font-weight="600" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#16212c">Company</text>
+      <text x="200" y="237" text-anchor="middle" font-size="10" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#5b6b78">1,600</text>
+
+      <!-- Address -->
+      <circle cx="160" cy="380" r="36" fill="#2f8f8a" />
+      <text x="160" y="386" text-anchor="middle" font-size="16" font-weight="700" font-family="-apple-system, Segoe UI, system-ui, Roboto, sans-serif" fill="#fbfdfe">Ad</text>
+      <text x="160" y="437" text-anchor="middle" font-size="12.5" font-weight="600" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#16212c">Address</text>
+      <text x="160" y="451" text-anchor="middle" font-size="10" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#5b6b78">12,047</text>
+
+      <!-- Device -->
+      <circle cx="210" cy="600" r="36" fill="#2f8f8a" />
+      <text x="210" y="606" text-anchor="middle" font-size="16" font-weight="700" font-family="-apple-system, Segoe UI, system-ui, Roboto, sans-serif" fill="#fbfdfe">De</text>
+      <text x="210" y="657" text-anchor="middle" font-size="12.5" font-weight="600" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#16212c">Device</text>
+      <text x="210" y="671" text-anchor="middle" font-size="10" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#5b6b78">16,391</text>
+
+      <!-- IP_Address -->
+      <circle cx="460" cy="680" r="36" fill="#2f8f8a" />
+      <text x="460" y="686" text-anchor="middle" font-size="15" font-weight="700" font-family="-apple-system, Segoe UI, system-ui, Roboto, sans-serif" fill="#fbfdfe">IP</text>
+      <text x="460" y="737" text-anchor="middle" font-size="12.5" font-weight="600" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#16212c">IP_Address</text>
+      <text x="460" y="751" text-anchor="middle" font-size="10" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#5b6b78">16,391</text>
+
+      <!-- Payment_Method -->
+      <circle cx="620" cy="600" r="35" fill="#2f8f8a" />
+      <text x="620" y="606" text-anchor="middle" font-size="16" font-weight="700" font-family="-apple-system, Segoe UI, system-ui, Roboto, sans-serif" fill="#fbfdfe">Pm</text>
+      <text x="620" y="656" text-anchor="middle" font-size="12.5" font-weight="600" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#16212c">Payment_Method</text>
+      <text x="620" y="670" text-anchor="middle" font-size="10" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#5b6b78">8,059</text>
+
+      <!-- Transaction -->
+      <circle cx="940" cy="340" r="40" fill="#b06b28" />
+      <text x="940" y="346" text-anchor="middle" font-size="18" font-weight="700" font-family="-apple-system, Segoe UI, system-ui, Roboto, sans-serif" fill="#fbfdfe">Tx</text>
+      <text x="940" y="401" text-anchor="middle" font-size="12.5" font-weight="600" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#16212c">Transaction</text>
+      <text x="940" y="415" text-anchor="middle" font-size="10" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#5b6b78">119,951</text>
+
+      <!-- Memory -->
+      <circle cx="820" cy="520" r="19" fill="#6f4fb0" />
+      <text x="820" y="524" text-anchor="middle" font-size="10" font-weight="700" font-family="-apple-system, Segoe UI, system-ui, Roboto, sans-serif" fill="#fbfdfe">Me</text>
+      <text x="820" y="559" text-anchor="middle" font-size="12.5" font-weight="600" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#16212c">Memory</text>
+      <text x="820" y="573" text-anchor="middle" font-size="10" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" fill="#5b6b78">1</text>
+    </g>
+  </g>
+</svg>
