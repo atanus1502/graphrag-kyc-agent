@@ -46,17 +46,7 @@ You will be using the OpenAI Agent SDK with an OpenAI model, so you need an OPEN
 
 ## **Neo4j**
 
-You have two options to create a Free Neo4j database
-
-### Option 1: Local Neo4j Docker Instance
-
-
-Start a Neo4j docker container using the provided docker-compose.yml:
-```bash
-docker compose up -d
-```
-
-### Option 2: Neo4j AuraDB Free (Managed Instance)
+Create a Free Neo4j database with AuraDB Free (managed instance):
 
 1. Head over to [Neo4j AuraDB Console](https://console.neo4j.io/)
 
@@ -146,6 +136,20 @@ Test the agent tools with these example questions:
    Write a 300-word summary of this investigation into this customer and display it. Store it as a memory, make sure to link it to accounts and transasction mentioned in the conversation
    ```
    This tests the `create_memory` tool.
+
+## **Web UI**
+
+A browser-based chat interface is available as an alternative to the terminal REPL. It talks to the
+same agent and tools defined in `kyc_agent.py`, backed by a small FastAPI server (`webapp.py`).
+
+Start it with:
+```bash
+uvicorn webapp:app --host 127.0.0.1 --port 8000
+```
+
+Then open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser. Ask questions the same way
+you would in the terminal (see the example questions above) — conversation history is kept client-side
+and sent with each request, so follow-up questions can refer back to earlier answers.
 
 ## Knowledge Graph Schema
 

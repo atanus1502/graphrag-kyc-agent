@@ -10,12 +10,13 @@ A GraphRAG (Graph Retrieval-Augmented Generation) "Know-Your-Customer" (KYC) age
 
 - Requires Python 3.13+ and the `uv` package manager.
 - Install deps: `uv venv && source .venv/bin/activate && uv sync`
-- Start local Neo4j: `docker compose up -d` (neo4j 2025.05.0, APOC plugin, auth `neo4j/password`, bolt on 7687, browser on 7474). Alternative: a Neo4j AuraDB Free instance — see README for how to derive `NEO4J_URI`/`NEO4J_USERNAME`/`NEO4J_DATABASE` from the AuraDB instance id.
-- Config is via a `.env` file (not checked in): `OPENAI_API_KEY`, `NEO4J_URI`, `NEO4J_USERNAME`, `NEO4J_PASSWORD`, `NEO4J_DATABASE`. All Neo4j vars fall back to local-docker defaults (`bolt://localhost:7687`, `neo4j`/`password`/`neo4j`) if unset.
+- Neo4j runs on AuraDB Free (managed instance) — see README for how to derive `NEO4J_URI`/`NEO4J_USERNAME`/`NEO4J_DATABASE` from the AuraDB instance id.
+- Config is via a `.env` file (not checked in): `OPENAI_API_KEY`, `NEO4J_URI`, `NEO4J_USERNAME`, `NEO4J_PASSWORD`, `NEO4J_DATABASE`. All Neo4j vars fall back to `bolt://localhost:7687` / `neo4j` / `password` / `neo4j` if unset.
 - Seed the graph (run once against an empty database): `python generate_kyc_dataset.py`
 - Run the full agent (MCP server + text2cypher): `python kyc_agent.py`
 - Run the alternate agent (hand-written Cypher tools only): `python kyc_cypher_tools.py`
 - Both agents are interactive REPLs: type a question at the `Enter your KYC query (or 'quit' to exit):` prompt; `quit` exits.
+- Run the browser chat UI instead: `uvicorn webapp:app --host 127.0.0.1 --port 8000`, then open `http://127.0.0.1:8000`. Same agent/tools as `kyc_agent.py`, reused via `build_agent()`.
 - `kyc_agent.py`'s `generate_cypher` tool requires a local Ollama server (`ollama serve`) with the model `ed-neo4j/t2c-gemma3-4b-it-q8_0-35k` pulled (`ollama pull ed-neo4j/t2c-gemma3-4b-it-q8_0-35k`).
 - No test suite, linter, or CI config exists in this repo.
 
@@ -29,6 +30,8 @@ There are **two independent, non-shared implementations** of the same KYC agent 
 - **`kyc_cypher_tools.py`** — a simpler, self-contained agent. Registers 5 hand-written `@function_tool`s that each encode one specific fixed Cypher pattern (`get_customer_info`, `find_customers_in_rings`, `is_customer_in_suspicious_ring`, `is_customer_bridge`, `is_customer_linked_to_hot_property`) and returns plain dicts — no MCP server, no text2cypher. Note its agent `instructions` string is copy-pasted from `kyc_agent.py` and still references the MCP server / `generate_cypher` tool even though this file doesn't wire either up — treat that instruction text as stale if editing this file.
 
 Both files independently duplicate the same Neo4j driver bootstrap (env var reads, `get_neo4j_driver()`, logging setup) — keep any changes to connection handling in sync across both if they matter.
+
+**`webapp.py`** is a third entrypoint: a FastAPI server exposing `kyc_agent.py`'s agent over HTTP instead of a terminal REPL. It imports `build_agent()`, `neo4j_mcp_server`, and `driver` from `kyc_agent.py` rather than duplicating tool/agent code — the MCP server is connected once at FastAPI's `lifespan` startup (not per-request), and `static/index.html` is a single-page chat UI that keeps conversation history client-side, resending the full history with each `/api/chat` call (mirroring the REPL's `conversation_history` pattern).
 
 ### Graph data model
 
