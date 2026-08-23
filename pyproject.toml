@@ -1,0 +1,14 @@
+[project]
+name = "kyc-agent"
+version = "0.1.0"
+description = "A KYC GraphRAG agent built with OpenAI Agent SDK. It features Neo4j MCP Server and Text2Cypher integration with Ollama "
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "neo4j>=5.28.1",
+    "neo4j-rust-ext>=5.28.1.0",
+    "numpy>=2.3.0",
+    "ollama>=0.5.1",
+    "openai-agents>=0.0.17",
+    "python-dotenv>=1.1.0",
+]
